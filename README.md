@@ -5,7 +5,7 @@ The website is deployed and can be accessed through the link below:
 ## 
 
 > The website is based on Angular and it delivers a single page application (SPA) that uses Firebase Authentication and Database features, and Bootstrap.
-<br>
+
 > The SPA depicts a mock e-commerce website.
 
 All products shown on the website were fetched from "Platzi Fake Store API" ---> https://fakeapi.platzi.com
@@ -28,7 +28,6 @@ The website is a mock e-commerce website. To have mock products to present in th
 Platzi Fake Store API does not return the same products everytime, i.e., different names, ids... To make the products persistent, there was the need to store them in the database. Now we use the Firebase real-time database to fetch the available products which were taken from Platzi Fake Store API. This way, only the images will change, i.e., the links are the same but they will show a different image from time to time.
 
 > Note:
-<br>
 > Most products will present names, images, prices, or any other info, that will most likely have no connection whatsoever... It is all mock / fake data.
 
 - "typescript": "~4.9.4",
@@ -43,6 +42,14 @@ Platzi Fake Store API does not return the same products everytime, i.e., differe
 - "rxjs": "~7.8.0",
 - "tslib": "^2.3.0",
 - "zone.js": "~0.12.0"
+
+Directives were coded to control certain functionalities, e.g., navbar collapse, navbar / button dropdown, horizontal scroll, and carousel slide.
+
+Alerts are shown on the website when errors or something unexpected occurs. An alert component was coded to be mainly shown on authentication related features.
+
+Additionally, a loading spinner component is used during the login / sign up while the information is processed. The html and css code related to the loading spinner itself was taken from (https://loading.io/css/).
+
+Relatively to the forms present in the website, some were coded using the template-driven method and others using the reactive-driven method. Any submit button present in the website was coded to only be enabled if the forms or related inputs are valid, i.e., they respect a set of rules.
 
 # How to Use
 
@@ -68,73 +75,71 @@ The website header also presents a search input. After the user clicks on the se
 
 # Screenshots
 
-### Homepage
+## Homepage
 
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/homepage.png?raw=true)
 
+## Products page
 
-### Products page
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/products_page.png?raw=true)
 
+## Categories page
 
+### Clothes page
 
-### Categories page
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/categories_clothes_page.png?raw=true)
 
+### Electronics page
 
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/categories_electronics_page.png?raw=true)
 
-#### Clothes page
+### Shoes page
 
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/categories_shoes_page.png?raw=true)
 
+## Products details page
 
-#### Electronics page
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/products_details_page.png?raw=true)
 
+## Contact page
 
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/contact_page.png?raw=true)
 
-#### Shoes page
+## Stores page
 
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/stores_page.png?raw=true)
 
+## Login / Sign Up page
 
-### Products details page
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/login_page.png?raw=true)
 
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/signup_page.png?raw=true)
 
+## Cart page
 
-### Contact page
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/cart_createOrder_page.png?raw=true)
 
+## Products added to the cart
 
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/whenProductsAdded.png?raw=true)
 
-### Stores page
+## User info page
 
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/user_info_page.png?raw=true)
 
+## Orders page
 
-### Login / Sign Up page
+### Order history page
 
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/order_history.png?raw=true)
 
+### Order is placed page
 
-### Cart page
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/order_placed.png?raw=true)
 
+## Search results page
 
-
-### Products added to the cart
-
-
-
-### User info page
-
-
-
-### Orders page
-
-
-
-#### Order history page
-
-
-
-#### Order is placed page
-
-
-
-### Search results page
-
-
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/search_results_page.png?raw=true)
 
 # Author
 
@@ -144,6 +149,7 @@ The website header also presents a search input. After the user clicks on the se
 
 - Website favicon: Flaticon ---> https://www.flaticon.com/free-icons/shop
 - All products shown on the website were fetched from "Platzi Fake Store API" ---> https://fakeapi.platzi.com
+- Loading spinner related html and css code ---> https://loading.io/css/ 
 
 # Licence
 
