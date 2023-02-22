@@ -2,7 +2,9 @@
 
 The website is deployed and can be accessed through the link below:
 
-## 
+## https://the-store-kazimkazam.netlify.app/
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d96e55bc-020a-48d1-a21f-a290f90743ea/deploy-status)](https://app.netlify.com/sites/the-store-kazimkazam/deploys)
 
 > The website is based on Angular and it delivers a single page application (SPA) that uses Firebase Authentication and Database features, and Bootstrap.
 
@@ -51,6 +53,8 @@ Additionally, a loading spinner component is used during the login / sign up whi
 
 Relatively to the forms present in the website, some were coded using the template-driven method and others using the reactive-driven method. Any submit button present in the website was coded to only be enabled if the forms or related inputs are valid, i.e., they respect a set of rules.
 
+No email validation is being used. This means that the user can use any mock email address. However, only valid email addresses will be able to use the feature that allows to change the account password.
+
 # How to Use
 
 The website is a fake e-commerce website. In that sense, the website homepage presents some mock products that the store wants viewers to notice (using a carousel feature) and below it shows featured campaings presented with a horizontal scroll feature. The carousel feature automatically slides right every 5s, and the user can also slide right manually.
@@ -72,6 +76,8 @@ In the Products, Categories, and Product Details page, under each product image 
 While on the Cart page, all products that were added to the cart are presented there on the left side of the page. On the right side, the form to create a new order is presented. Here, the user can do the following actions with the products that are shown to be on the cart: remove them from the cart, and increase or decrease quantity. On top of the cart page is shown the total cost of the cart which is updated accordingly every time a user makes a cart related action.  
 
 The website header also presents a search input. After the user clicks on the search button or presses the enter key while the search input is active, the search results page will be presented to the user while showing every product in the database that may be related with the search topic introduced. The search will only work if the search input is not empty.
+
+No email validation is being used. This means that the user can use any mock email address. However, only valid email addresses will be able to use the feature that allows to change the account password.
 
 # Screenshots
 
