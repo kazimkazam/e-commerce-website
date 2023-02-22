@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-md-6">
+        <!-- render error in case there is one -->
+        <app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert>
+        
+        <!-- <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="!isLoading"> -->
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="form-control" ngModel name="email" required email>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" class="form-control" ngModel name="password" required minlength="6">
+            </div>
+
+            <div>
+                <button class="btn btn-primary me-2" type="submit" [disabled]="!form.valid">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button> |
+                <button class="btn btn-primary m-2" type="button" (click)="onSwitchMode()">{{ isLoginMode ? 'Switch to Sign Up' : 'Switch to Login' }}</button>
+                <button class="btn btn-warning ms-5" type="button" *ngIf="isLoginMode && forgotPassword === 'false'" (click)="onWantsToResetPassword()">Forgot Password</button>
+
+                <button class="btn btn-success ms-5" *ngIf="isLoginMode && forgotPassword === 'yes'" [disabled]="!form.controls['email'].valid" (click)="onResetPassword(form)">Reset password!</button>
+            </div>
+
+            <app-alert
+            message="Please, check your email account. An email was sent with the instructions needed to reset the password."
+            *ngIf="forgotPassword === 'emailSent'"
+            (close)="onResetEmailSent()"
+            ></app-alert>
+        </form>
+
+        <!-- render loading spinner -->
+        <div *ngIf="isLoading" style="text-align: center; margin-top: 2.5rem;">
+            <app-loading-spinner></app-loading-spinner>
+            <h5>Please, wait a moment...</h5>
+        </div>
+    </div>
+</div>

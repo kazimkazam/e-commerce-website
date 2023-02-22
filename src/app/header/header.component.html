@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-xl bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" style="font-family: fantasy;" routerLink="/home">
+            <!-- <img src="../assets/imgs/store.png" alt="logo" width="30" /> -->
+            the store
+        </a>
+
+        <button class="navbar-toggler" type="button" appCollapse #collapse="appCollapsed">
+        <!-- <button class="navbar-toggler" type="button"> -->
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" [ngClass]="{ 'collapse': !collapse.isCollapsed }">
+        <!-- <div class="collapse navbar-collapse"> -->
+            <ul class="navbar-nav ms-2 me-auto mb-2 mb-lg-0 nav-pills">
+                <!-- nav tabs -->
+                <li class="nav-item">
+                    <a class="nav-link text-light" routerLinkActive="active" routerLink="/products">Products</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" role="button" aria-expanded="false" appDropdown #show="appDropDown">Categories</a>
+                    <ul class="dropdown-menu" [ngClass]="{ 'show': show.isShowing }">
+                        <li><a class="dropdown-item" routerLink="/categories/clothes">Clothes</a></li>
+                        <li><a class="dropdown-item" routerLink="/categories/electronics">Electronics</a></li>
+                        <li><a class="dropdown-item" routerLink="/categories/shoes">Shoes</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-light" routerLinkActive="active" routerLink="/contact">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-light" routerLinkActive="active" routerLink="/stores">Stores</a>
+                </li>
+
+                <!-- search field -->
+                <form class="d-flex" role="search" (keyup.enter)="onHandleSearch(searchInput); searchInput.value = ''">
+                    <input class="form-control ms-5 me-2" type="search" name="searchInput" placeholder="Search" aria-label="Search" #searchInput>
+                    <button type="button" class="btn btn-outline-primary text-light" aria-label="Search" (click)="onHandleSearch(searchInput); searchInput.value = ''" >Search</button>
+                </form>
+            </ul>
+
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <!-- settings -->
+                <li class="nav-item dropdown" *ngIf="isAuthenticated" appDropdown #show="appDropDown">
+                    <button class="btn btn-outline-secondary dropdown-toggle text-light m-2" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16">
+                            <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                        </svg>
+                        
+                    </button>
+                    <ul class="dropdown-menu" [ngClass]="{ 'show': show.isShowing }">
+                        <li><a class="dropdown-item" routerLink="/info">User info</a></li>
+                        <li><a class="dropdown-item" routerLink="/orders">Order history</a></li>
+                    </ul>
+                </li>
+
+                <!-- cart -->
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-secondary text-light m-2" routerLink="/cart" routerLinkActive="active">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg>
+                        Cart
+                    </button>
+                </li>
+
+                <!-- login / logout -->
+                <li class="nav-item" *ngIf="!isAuthenticated">
+                    <button type="button" class="btn btn-outline-primary text-light m-2" routerLink="/authentication" routerLinkActive="active">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                            <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                        </svg>
+                        Login / Sign Up
+                    </button>
+                </li>
+                <li class="nav-item" *ngIf="isAuthenticated">
+                    <button type="button" class="btn btn-outline-danger text-light m-2" (click)="onLogout()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
+                            <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                        </svg>
+                        Logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

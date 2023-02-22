@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 px-4">
+            <h3>Contact us. We are here for you!</h3>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-6 px-4">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div formGroupName="userData">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input id="name" formControlName="name" class="form-control" type="text">
+
+                        <div class="alert alert-danger" *ngIf="!contactForm.get('userData.name')?.valid && contactForm.get('userData.name')?.touched">
+                            The name field is required!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" formControlName="email" class="form-control">
+                        <div class="alert alert-danger" *ngIf="!contactForm.get('userData.email')?.valid && contactForm.get('userData.email')?.touched">
+                            Please enter a valid email!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" formControlName="subject" class="form-control">
+                    <div class="alert alert-danger" *ngIf="!contactForm.get('subject')?.valid && contactForm.get('subject')?.touched">
+                        Please enter a subject!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" rows="5" class="form-control" formControlName="message">
+                    </textarea>
+                    <span *ngIf="contactForm.get('message')!.value !== null">Number of characters: {{ contactForm.get('message')!.value.length }}</span>
+                    <div class="alert alert-danger" *ngIf="!contactForm.get('message')?.valid && contactForm.get('message')?.touched">
+                        Please enter a valid message! (Min. characters: 5)
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3" [disabled]="!contactForm.valid">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

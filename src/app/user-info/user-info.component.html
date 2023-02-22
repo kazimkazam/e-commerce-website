@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+    <div class="col-6">
+        <form [formGroup]="changePasswordForm">
+            <label for="email">Email:</label>
+            <input class="form-control" type="email" name="email" id="email" value="{{ user[0].email }}" disabled style="background-color: lightgrey;">
+        </form>
+
+        <button class="btn btn-warning my-3" (click)="onWantToChangePassword()" *ngIf="!wantToChangePassword">I want to change my password</button>
+        <button class="btn btn-primary my-3" (click)="onChangePassword()" *ngIf="wantToChangePassword" [disabled]="changePasswordForm.valid">Please, change password!</button>
+
+        <app-alert
+        message="Please, check your email account. An email was sent with the instructions needed for you to change your password."
+        *ngIf="passwordChanged"
+        (close)="onChangePasswordDone()"
+        ></app-alert>
+
+        <button class="btn btn-outline-secondary m-3" *ngIf="!wantToDeleteAccount" (click)="onWantToDeleteAccount()">I want to delete my account</button>
+        <button class="btn btn-danger m-3" *ngIf="wantToDeleteAccount" (click)="onDeleteAccount()">Please, delete account!</button>
+    </div>
+</div>

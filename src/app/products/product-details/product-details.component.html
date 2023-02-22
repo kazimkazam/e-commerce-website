@@ -1,0 +1,48 @@
+<div class="row justify-content-center mt-5">
+    <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+        <h5>{{ product.title }}</h5>
+
+        <span>
+            <img class="img-fluid" src="{{ product.images[0] }}" alt="{{ product.title }}" style="border-radius: 1rem; max-height: 15rem;">
+        </span>
+
+        <p>{{ product.price }}.00 $</p>
+
+        <div class="d-flex justify-content-center align-items-center">
+            <!-- add item button -->
+            <button 
+            type="button"
+            class="btn btn-outline-primary m-2 d-flex justify-content-center align-items-center"
+            (click)="onAddToCart(product.id)"
+            *ngIf="productsAdded.indexOf(product.id) === -1"
+            >
+                Add
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill ms-2" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+                </svg>
+            </button>
+
+            <button 
+            type="button"
+            class="btn btn-outline-primary m-2 d-flex justify-content-center align-items-center"
+            (click)="onAddToCart(product.id)"
+            *ngIf="productsAdded.indexOf(product.id) !== -1"
+            [disabled]="productsAdded.indexOf(product.id) !== -1"
+            >
+                Added
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill ms-2" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+                </svg>
+            </button>
+
+            <!-- remove item button -->
+            <button class="btn btn-danger btn-sm"
+            (click)="onRemoveFromCart(product.id)"
+            *ngIf="productsAdded.indexOf(product.id) !== -1"
+            >X</button>
+        </div>
+
+        <h5 class="mt-5">Description:</h5>
+        <p>{{ product.description }}</p>
+    </div>
+</div>

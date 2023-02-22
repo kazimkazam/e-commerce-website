@@ -1,0 +1,16 @@
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border-color: lightcoral;
+}
+
+label, button[type="submit"] {
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
+
+.alert {
+    margin-top: 0.5rem;
+}
+
+span {
+    font-size: small;
+}

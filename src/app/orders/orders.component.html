@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="row d-flex justify-content-evenly align-items-center">
+        <div class="col-3 float-start">
+            <h4>Order History</h4>
+        </div>
+        
+        <div class="col-3 float-end">
+            <label for="email">User ID:</label>
+            <p class="form-control" style="background-color: lightgrey;">{{ user[0].id }}</p>
+            <label for="email">Email:</label>
+            <p class="form-control" style="background-color: lightgrey;">{{ user[0].email }}</p>
+        </div>
+    </div>
+    
+    <div class="col-12">
+        
+        <ul class="list-group mb-2">
+            <li
+            class="list-group-item"
+            *ngFor="let order of orders;"
+            >
+                <p>Name: {{ order.user.name }}</p>
+                <p>Address: {{ order.user.address }}</p>
+                <p>email: {{ order.user.email }}</p>
+                <h5>Date: {{ order.date }}</h5>
+
+                <div class="alert alert-secondary">
+                    <div class="d-flex justify-content-center">
+                        <h4>Total cost: {{ order.cost }}.00 $</h4>
+                    </div>
+                    
+                    <h5>You ordered:</h5>
+
+                    <table class="table table-dark table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price (per item)</th>
+                                <th scope="col">Price (total)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                            *ngFor="let product of order.cart;"
+                            >
+                                <td>{{ product.product.title }}</td>
+                                <td>{{ product.quantity }}</td>
+                                <td>{{ product.product.price }}.00 $</td>
+                                <td>{{ product.product.price * product.quantity }}.00 $</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

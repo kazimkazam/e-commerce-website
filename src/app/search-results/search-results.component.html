@@ -1,0 +1,50 @@
+<span style="font-weight: bold; border-bottom: 1px solid #0D6EFD;">Here are the products related with the search topic "{{ searchTopic }}":</span>
+
+<div class="d-flex flex-row flex-wrap text-center justify-content-center">
+    <div
+    class="p-2 mx-5 my-2"
+    *ngFor="let product of searchResults;"
+    >
+        <div routerLink="/products/{{ product.id }}" style="cursor: pointer;">
+            <h5>{{ product.title }}</h5>
+
+            <span>
+                <img class="img-fluid" src="{{ product.images[0] }}" alt="{{ product.title }}" style="border-radius: 1rem; max-height: 15rem;">
+            </span>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center">
+            <span>{{ product.price }}.00 $</span>
+
+            <!-- add item button -->
+            <button 
+            type="button"
+            class="btn btn-outline-primary m-2 d-flex justify-content-center align-items-center"
+            (click)="onAddToCart(product.id)"
+            *ngIf="productsAdded.indexOf(product.id) === -1"
+            >
+                Add
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill ms-2" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+                </svg>
+            </button>
+
+            <button 
+            type="button"
+            class="btn btn-outline-primary m-2 d-flex justify-content-center align-items-center"
+            (click)="onAddToCart(product.id)"
+            *ngIf="productsAdded.indexOf(product.id) !== -1"
+            [disabled]="productsAdded.indexOf(product.id) !== -1"
+            >
+                Added
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill ms-2" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+                </svg>
+            </button>
+
+            <!-- remove item button -->
+            <button class="btn btn-danger btn-sm" (click)="onRemoveFromCart(product.id)" *ngIf="productsAdded.indexOf(product.id) !== -1">X</button>
+        </div>
+    </div>
+</div>
+

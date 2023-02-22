@@ -1,0 +1,62 @@
+<div class="row">
+    <div id="carouselExampleRide" class="carousel slide d-flex justify-content-center" data-bs-ride="true" >
+        <div class="carousel-inner" style="max-width: 35rem;">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" [ngClass]="{ 'active': active1.isActive === 0 }" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" [ngClass]="{ 'active': active1.isActive === 1 }" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" [ngClass]="{ 'active': active1.isActive === 2 }" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" [ngClass]="{ 'active': active1.isActive === 3 }" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" [ngClass]="{ 'active': active1.isActive === 4 }" aria-label="Slide 5"></button>
+            </div>
+
+            <div
+            *ngFor="let product of promotions; let i = index;"
+            >
+                <div class="d-flex justify-content-center">
+                    <h4 *ngIf="active1.isActive === i">{{ product.title }}</h4>
+                </div>
+                <div class="carousel-item" [ngClass]="{ 'active': active1.isActive === i }">
+                    <div>
+                        <img 
+                        src="{{ product.images[0] }}"
+                        class="d-block" 
+                        alt="ad product {{ i }}" 
+                        style="max-height: 25rem; margin: auto; border-radius: 0.5rem; cursor: pointer;"
+                        routerLink="/products/{{ product.id }}"
+                        >
+
+                        <div class="d-flex justify-content-center">
+                            <span *ngIf="active1.isActive === i">{{ product.price }}.00 $</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+    
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next" appSlide #active1="appSlider">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="ms-5 mt-5">
+    <h4 style="font-weight: bold;">Featured Campaigns</h4>
+</div>
+
+<div class="something d-flex flex-row" style="overflow-x: hidden;" appHorizontalScroll>
+    <div class="mx-3 mb-3" style="width: 30rem;"
+    *ngFor="let product of featured; let i = index;"
+    >
+        <img src="{{ product.images[0] }}" alt="{{ product.title }}"
+        style="max-height: 15rem; border-radius: 0.5rem; cursor: pointer;"
+        routerLink="/products/{{ product.id }}"
+        >
+        <div class="d-flex flex-column align-items-center">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p>{{ product.price }}.00 $</p>
+        </div>
+    </div>
+</div>

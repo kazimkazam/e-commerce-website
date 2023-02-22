@@ -1,0 +1,120 @@
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <!-- <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> -->
+                    <button class="accordion-button collapsed" appDropdown #show="appDropDown" [ngClass]="{ 'collapsed': !show.isCollapsed }" type="button">
+                        Store 1
+                    </button>
+                </h2>
+                <!-- <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne"> -->
+                <div id="panelsStayOpen-collapseOne" [ngClass]="{ 'show': show.isShowing }" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <h4>Store 1</h4>
+                                <p>Address: This is an address</p>
+                                <p>Email: address@email.com</p>
+                                
+                                <h5>Schedule</h5>
+                                <p>Monday to Saturday : 10:00 to 22:00 | Sunday: 10:00 to 21:00</p>
+                            </div>
+                            <div class="col-6">
+                                <img class="float-end"
+                                src="https://preview.redd.it/imrkxnt3ip041.jpg?auto=webp&s=ab190982334b0d15bc79c23d26995a53c8018666"
+                                alt="store 1"
+                                style="max-height: 15rem; border-radius: 1rem;">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button class="accordion-button collapsed" appDropdown #show2="appDropDown" [ngClass]="{ 'collapsed': !show2.isCollapsed }" type="button">
+                        Store 2
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" [ngClass]="{ 'show': show2.isShowing }" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <h4>Store 2</h4>
+                                <p>Address: This is an address</p>
+                                <p>Email: address@email.com</p>
+                                
+                                <h5>Schedule</h5>
+                                <p>Monday to Saturday : 10:00 to 22:00 | Sunday: 10:00 to 21:00</p>
+                            </div>
+                            <div class="col-6">
+                                <img
+                                class="float-end"
+                                src="https://preview.redd.it/imrkxnt3ip041.jpg?auto=webp&s=ab190982334b0d15bc79c23d26995a53c8018666"
+                                alt="store 2"
+                                style="max-height: 15rem; border-radius: 1rem;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button collapsed" appDropdown #show3="appDropDown" [ngClass]="{ 'collapsed': !show3.isCollapsed }" type="button">
+                        Store 3
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" [ngClass]="{ 'show': show3.isShowing }" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <h4>Store 3</h4>
+                                <p>Address: This is an address</p>
+                                <p>Email: address@email.com</p>
+                                
+                                <h5>Schedule</h5>
+                                <p>Monday to Saturday : 10:00 to 22:00 | Sunday: 10:00 to 21:00</p>
+                            </div>
+                            <div class="col-6">
+                                <img
+                                class="float-end"
+                                src="https://preview.redd.it/imrkxnt3ip041.jpg?auto=webp&s=ab190982334b0d15bc79c23d26995a53c8018666"
+                                alt="store 1"
+                                style="max-height: 15rem; border-radius: 1rem;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center mt-5">
+            <div>
+                <h3
+                style="font-family: cursive; font-weight: bold; padding: 0.5rem; border-bottom: 5px solid #0D6EFD;"
+                >Visit us at any of our stores!</h3>
+                <h5
+                style="padding: 0.5rem;"
+                >We will get you everything at the best price!</h5>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <img src="../../assets/imgs/smile.jpg" alt="smile" style="max-height: 15rem;">
+        </div>
+    </div>
+
+    <div class="col-6 d-flex flex-column justify-content-center align-items-center align-items-center">
+        <h5 style="font-weight: bold;">Look here for the nearest store!</h5>
+
+        <div style="max-width: 30rem;">
+            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+            src="https://www.openstreetmap.org/export/embed.html?bbox=4.75919664860212%2C47.50959630939434%2C8.75919664860212%2C50.50959630939434&amp;layer=mapnik" 
+            style="border-radius: 1rem;"></iframe>
+        </div>
+    </div>
+</div>

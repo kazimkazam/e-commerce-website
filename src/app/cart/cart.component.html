@@ -1,0 +1,60 @@
+<!-- cart area -->
+<div class="row justify-content-evenly mb-4">
+    <!-- on order success -->
+    <div class="col-6 alert alert-success d-flex flex-column align-items-center m-5" *ngIf="orderCreated">
+        <h5>Your order has been placed.</h5>
+        <span>You will receive your order at the requested address shortly.</span>
+        <h5>Thank you!</h5>
+    </div>
+
+    <!-- current cart -->
+    <div class="col-6" *ngIf="!orderCreated">
+        <h4>Current Cart:</h4>
+
+        <div class="alert alert-secondary d-flex flex-column align-items-center">
+            <h5>Total cost: </h5>
+            <span>{{ cartTotalCost }}.00 $</span>
+        </div>
+
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let product of cart">
+                <h5>{{ product.product.title }}</h5>
+                <p>{{ product.product.description }}</p>
+
+                <div class="row">
+                    <div class="col-6 d-flex flex-column align-items-center">
+                        <img 
+                        src="{{ product.product.images[0] }}" 
+                        alt="{{ product.product.title }} logo" 
+                        style="max-height: 5rem; border-radius: 0.5rem; cursor: pointer;"
+                        routerLink="/products/{{ product.product.id }}"
+                        >
+                        <p>{{ product.product.price}}.00 $</p>
+                    </div>
+
+                    <div class="col-6 d-flex align-items-center">
+                        <span class="me-3">Quantity: {{ product.quantity }}</span>
+                        <button class="btn btn-outline-primary btn-sm m-1" (click)="onIncreaseQuantity(product.product.id)">+</button>
+                        <button class="btn btn-outline-danger btn-sm m-1" (click)="onDecreaseQuantity(product.product.id)"> - </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-3 justify-content-center" *ngIf="!orderCreated">
+        <h4>Create your order here:</h4>
+        <form #cartForm="ngForm" (ngSubmit)="onCreateOrder(cartForm)">
+            <label for="name">Name:</label>
+            <input class="form-control" type="text" id="name" name="name" minlength="1" ngModel required>
+
+            <label for="address">Address:</label>
+            <input class="form-control" type="text" name="address" id="address" minlength="1" ngModel required>
+
+            <label for="email">Email:</label>
+            <input class="form-control" type="email" name="email" id="email" value="{{ user[0].email }}" disabled style="background-color: lightgrey;">
+
+            <button type="submit" class="btn btn-success mt-2" [disabled]="!cartForm.valid || cartTotalCost === 0">Create Order</button>
+        </form>
+    </div>
+</div>
