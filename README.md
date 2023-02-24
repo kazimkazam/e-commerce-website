@@ -47,7 +47,7 @@ Platzi Fake Store API does not return the same products everytime, i.e., differe
 
 Directives were coded to control certain functionalities, e.g., navbar collapse, navbar / button dropdown, horizontal scroll, and carousel slide.
 
-Alerts are shown on the website when errors or something unexpected occurs. An alert component was coded to be mainly shown on authentication related features.
+Alerts are shown on the website when errors or something unexpected occurs. An alert component was coded to be mainly shown on authentication related features, and it will show a different message depending on the information received from firebase.
 
 Additionally, a loading spinner component is used during the login / sign up while the information is processed. The html and css code related to the loading spinner itself was taken from (https://loading.io/css/).
 
@@ -120,6 +120,10 @@ No email validation is being used. This means that the user can use any mock ema
 ![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/login_page.png?raw=true)
 
 ![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/signup_page.png?raw=true)
+
+### Error message component
+
+![image](https://github.com/kazimkazam/e-commerce-website/blob/master/screenshots/login_signup_error.png?raw=true)
 
 ## Cart page
 
