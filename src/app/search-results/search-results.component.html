@@ -1,4 +1,5 @@
-<span style="font-weight: bold; border-bottom: 1px solid #0D6EFD;">Here are the products related with the search topic "{{ searchTopic }}":</span>
+<span style="font-weight: bold; border-bottom: 1px solid #0D6EFD;" *ngIf="searchResults.length !== 0">Here are the products related with the search topic "{{ searchTopic }}":</span>
+<span style="font-weight: bold; border-bottom: 1px solid #0D6EFD;" *ngIf="searchResults.length === 0">Sorry, we do not found any of our products to be related with the search topic "{{ searchTopic }}"...</span>
 
 <div class="d-flex flex-row flex-wrap text-center justify-content-center">
     <div
