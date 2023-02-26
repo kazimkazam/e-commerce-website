@@ -1,5 +1,11 @@
 <span style="font-weight: bold; border-bottom: 1px solid #0D6EFD;" *ngIf="searchResults.length !== 0">Here are the products related with the search topic "{{ searchTopic }}":</span>
-<span style="font-weight: bold; border-bottom: 1px solid #0D6EFD;" *ngIf="searchResults.length === 0">Sorry, we do not found any of our products to be related with the search topic "{{ searchTopic }}"...</span>
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-6 alert alert-primary d-flex flex-column justify-content-center align-items-center" *ngIf="searchResults.length === 0">
+        <p style="font-weight: bold;">Sorry, we did not find any of our products to be related with the search topic "{{ searchTopic }}"...</p>
+        <p>Check our products, we will get the best at the best price!</p>
+    </div>
+</div>
+
 
 <div class="d-flex flex-row flex-wrap text-center justify-content-center">
     <div
